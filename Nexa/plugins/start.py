@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from Nexa.bot import app
 
-START_IMAGE = "https://graph.org/file/6e7c1a1f5c21d5b9a9c3e.jpg"
+START_IMAGE = "https://files.catbox.moe/u5ry00.jpg"
 
 TEXT = "Welcome To Nexa Bot"
 
