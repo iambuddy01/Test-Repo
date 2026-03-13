@@ -1,9 +1,10 @@
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from Nexa.bot import app, CLONED
+from Nexa.client import load_plugins
 from config import API_ID, API_HASH
 
-START_IMAGE = "https://files.catbox.moe/u5ry00.jpg"
+START_IMAGE = "https://graph.org/file/6e7c1a1f5c21d5b9a9c3e.jpg"
 
 TEXT = "Welcome To Nexa Cloner Bot"
 
@@ -17,6 +18,7 @@ async def start(client, message):
                 InlineKeyboardButton("Update", url="https://t.me/telegram")
             ],
             [
+                InlineKeyboardButton("Majduri", url="https://t.me/telegram"),
                 InlineKeyboardButton("Support", url="https://t.me/telegram")
             ]
         ]
@@ -49,11 +51,15 @@ async def clone(client, message):
 
         await user_client.start()
 
+        load_plugins(user_client)
+
         CLONED[message.from_user.id] = user_client
 
         buttons = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("Fetch Groups", callback_data="fetch")]
+                [
+                    InlineKeyboardButton("Fetch Groups", callback_data="fetch")
+                ]
             ]
         )
 
